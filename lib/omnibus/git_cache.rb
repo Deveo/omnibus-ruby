@@ -55,6 +55,7 @@ module Omnibus
 
     # Computes the tag for this cache entry
     def tag
+      remove_git_dirs
       # Accumulate an array of all the software projects that come before
       # the name and version we are tagging. So if you have
       #
@@ -80,7 +81,6 @@ module Omnibus
     # Create an incremental install path cache for the software step
     def incremental
       create_cache_path
-      remove_git_dirs
 
       shellout!(%Q(git --git-dir=#{cache_path} --work-tree=#{@install_dir} add -A -f))
       begin
