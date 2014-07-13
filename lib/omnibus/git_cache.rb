@@ -125,6 +125,7 @@ module Omnibus
           !File.exist?(File.join(File.dirname(path), required_file))
         end
       end.each do |path|
+        log.info(log_key) { "Removing git dir #{path}" }
         FileUtils.rm_rf(File.dirname(path))
       end
       return true
