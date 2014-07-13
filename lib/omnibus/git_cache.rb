@@ -98,7 +98,7 @@ module Omnibus
       cmd = shellout(%Q(git --git-dir=#{cache_path} --work-tree=#{@install_dir} tag -l "#{tag}"))
 
       restore_me = false
-      log.info(log_key) { "cmd #{cmd}" }
+      log.info(log_key) { "cmd #{%Q(git --git-dir=#{cache_path} --work-tree=#{@install_dir} tag -l "#{tag}")}" }
       cmd.stdout.each_line do |line|
         log.info(log_key) { "line #{line}" }
         restore_me = true if tag == line.chomp
