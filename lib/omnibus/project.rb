@@ -1059,7 +1059,7 @@ module Omnibus
     # @return [String]
     #
     def shasum
-      log.info(log_key) {"***************shasum***************"}
+      log.info(log_key) {"***************project shasum***************"}
       digest = Digest::SHA256.new
       log.info(log_key) {"digest #{digst}"}
       
