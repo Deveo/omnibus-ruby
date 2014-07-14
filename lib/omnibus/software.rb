@@ -866,12 +866,21 @@ module Omnibus
     # @return [String]
     #
     def shasum
+      log.info(log_key) {"***************shasum***************"}
       digest = Digest::SHA256.new
+      log.info(log_key) {"digest #{digst}"}
 
       update_with_string(digest, project.shasum)
+      log.info(log_key) {"project.shasum #{project.shasum}"}
       update_with_string(digest, name)
+      log.info(log_key) {"name #{name}"}
       update_with_string(digest, version_for_cache)
-      update_with_string(digest, JSON.fast_generate(overrides))
+      log.info(log_key) {"version_for_cache #{version_for_cache}"}
+      json = JSON.fast_generate(overrides)
+      update_with_string(digest, json)
+      log.info(log_key) {"overrides #{overrides}"}
+      log.info(log_key) {"json #{json}"}
+
 
       if filepath && File.exist?(filepath)
         update_with_file_contents(digest, filepath)
