@@ -128,8 +128,7 @@ module Omnibus
         ipc.incremental
       end
 
-      it 'adds all the changes to git removing git directories' do
-        expect(ipc).to receive(:remove_git_dirs)
+      it 'adds all the changes' do
         expect(ipc).to receive(:shellout!)
           .with("git --git-dir=#{cache_path} --work-tree=#{install_dir} add -A -f")
         ipc.incremental
