@@ -1061,7 +1061,7 @@ module Omnibus
     def shasum
       log.info(log_key) {"***************project shasum***************"}
       digest = Digest::SHA256.new
-      log.info(log_key) {"digest #{digst}"}
+      log.info(log_key) {"digest #{digest}"}
       
       update_with_string(digest, name)
       log.info(log_key) {"name #{name}"}
