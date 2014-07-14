@@ -1065,8 +1065,8 @@ module Omnibus
       
       update_with_string(digest, name)
       log.info(log_key) {"name #{name}"}
-      update_with_string(digest, build_version)
-      log.info(log_key) {"build_version #{build_version}"}
+#      update_with_string(digest, build_version)
+#      log.info(log_key) {"build_version #{build_version}"}
       update_with_string(digest, install_dir)
       log.info(log_key) {"install_dir #{install_dir}"}
       json = JSON.fast_generate(overrides)
